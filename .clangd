@@ -1,0 +1,9 @@
+ CompileFlags:
+   Add:
+    - -I/opt/rocm/include
+    - -xhip
+    - --no-cuda-version-check
+    - -I/opt/rocm/include
+    - -D__HIP_PLATFORM_AMD__=1
+    - -D__AMDGCN_WAVEFRONT_SIZE=64
+    - -D__HIP_DEVICE_COMPILE__=1
