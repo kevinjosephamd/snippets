@@ -82,7 +82,7 @@ __device__ uint64_t shared_base_offset() {
   uint32_t lo, hi;
   asm volatile(
       // Move the symbol address into s[6:7], then copy those to lo/hi
-      "s_mov_b64 s[6:7], src_shared_base \n"
+      "s_mov_b64 s[6:7], src_shared_base \n" // https://github.com/ROCm/llvm-project/blob/1c0f91c6fd453395b24f2ecefd1f843a99f1da9f/llvm/docs/AMDGPUOperandSyntax.rst#ival
       "s_mov_b32 %0, s6 \n"
       "s_mov_b32 %1, s7 \n"
       : "=s"(lo), "=s"(hi)     // outputs (two SGPRs)
