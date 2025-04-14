@@ -46,7 +46,7 @@ __global__ void kernel(int* out) {
 
 void entrypoint() {
     int *d_ptr{nullptr};
-    int block_size = 128;
+    int block_size = 1024;
     HIP_CHECK(hipMalloc(&d_ptr, sizeof(int) * block_size));
     kernel<<<1,block_size, block_size * sizeof(int)>>>(d_ptr);
     HIP_CHECK(hipGetLastError());
